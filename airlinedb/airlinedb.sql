@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 04, 2024 at 05:08 AM
+-- Generation Time: Nov 19, 2024 at 05:46 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -20,6 +20,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `airlinedb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admins`
+--
+
+CREATE TABLE `admins` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `role` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admins`
+--
+
+INSERT INTO `admins` (`id`, `username`, `password`, `role`) VALUES
+(1, 'Moontaha Rawshan', '$2y$10$GKtXVHpzT6.AJXWyGc.JOOtzVhM9s19etq318.fpqo.bw5Sstsxb.', 'admin'),
+(2, 'Raiyan', '$2y$10$8sGSD9mIUlxzqka7qrgOquq1JDkwFv0KACa/wEEMsUvslDija5wCS', 'admin'),
+(3, 'mrm', '$2y$10$XufCyShrtE.MtJAUpOqLi.bzS017.5MhfENLfJKTyUVHqd6dUWocC', 'admin'),
+(4, 'xRae04', '$2y$10$w9ssJTEY2s35mq7XZzofj.GYYx/YTgIGe46sQxs2PqGRNQvYfjCwK', 'admin'),
+(5, 'Sheikh Hasina', '$2y$10$XOK.Gdoz3B9VEF8b4OGHSeSGJ2xV0ccXmlnKFctcTH0Oy6vJeyfkW', 'admin'),
+(6, 'Raiyan Khan', '$2y$10$RXTERIV6qleaxyO5LLlHMOoUjUDkU9TAOnoVgJM4KXRiBNMsymdMG', 'admin');
 
 -- --------------------------------------------------------
 
@@ -60,6 +85,14 @@ CREATE TABLE `airport` (
   `IATA_code` char(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `airport`
+--
+
+INSERT INTO `airport` (`airport_id`, `airport_name`, `city`, `country`, `IATA_code`) VALUES
+(1, 'Shahjalal International Airport', 'Dhaka', 'Bangladesh', '123'),
+(2, 'Changi Internatoinal Airport', 'Singapore', 'Singapore', '456');
+
 -- --------------------------------------------------------
 
 --
@@ -73,7 +106,7 @@ CREATE TABLE `airport_maintenance` (
   `start_time` datetime NOT NULL,
   `end_time` datetime NOT NULL,
   `status` varchar(20) NOT NULL
-) ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -187,6 +220,16 @@ CREATE TABLE `medical_assistance` (
   `airport_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `medical_assistance`
+--
+
+INSERT INTO `medical_assistance` (`medical_team_id`, `team_lead`, `service_type`, `availability_status`, `response_time`, `airport_id`) VALUES
+(1, 'moontaha', 'Health Checks', 'Available', 56, 1),
+(2, 'raiyan', 'Health Checks', 'Available', 23, 2),
+(5, 'Moontaha Rawshan', 'First Aid', 'Engaged', 12, 2),
+(6, 'Sheikh Hasina', 'Health Checks', 'Engaged', 40, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -213,8 +256,21 @@ CREATE TABLE `route` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `route`
+--
+
+INSERT INTO `route` (`route_id`, `origin_airport_id`, `destination_airport_id`, `distance`) VALUES
+(1, 1, 2, 4007);
+
+--
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admins`
+--
+ALTER TABLE `admins`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `airline`
@@ -320,6 +376,12 @@ ALTER TABLE `route`
 --
 
 --
+-- AUTO_INCREMENT for table `admins`
+--
+ALTER TABLE `admins`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `airline`
 --
 ALTER TABLE `airline`
@@ -335,7 +397,7 @@ ALTER TABLE `airplane`
 -- AUTO_INCREMENT for table `airport`
 --
 ALTER TABLE `airport`
-  MODIFY `airport_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `airport_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `airport_maintenance`
@@ -377,13 +439,13 @@ ALTER TABLE `flight_status`
 -- AUTO_INCREMENT for table `medical_assistance`
 --
 ALTER TABLE `medical_assistance`
-  MODIFY `medical_team_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `medical_team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `route`
 --
 ALTER TABLE `route`
-  MODIFY `route_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `route_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
