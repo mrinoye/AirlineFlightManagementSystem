@@ -43,7 +43,7 @@ $result = $conn->query($sql);
                 <div class="space-x-3 my-3">
                     <a href="../admin//index.html"
                         class="px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition">Back to Home</a>
-                    <a href="http://localhost/airlinedb/admin/admin.php"
+                    <a href="http://localhost/airlinedb/admin/admin_login.php"
                         class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Switch to Admin</a>
                 </div>
             </form>
