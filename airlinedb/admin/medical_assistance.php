@@ -19,17 +19,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['add_medical_team'])) {
     $response_time = $_POST['response_time'];
     $airport_id = $_POST['airport_id'];
 
-    $insertQuery = "INSERT INTO medical_assistance (team_lead, service_type, availability_status, response_time, airport_id) 
-                    VALUES ('$team_lead', '$service_type', '$availability_status', '$response_time', '$airport_id')";
+    // Insert into Medical Assistance table
+    $insertMedicalQuery = "INSERT INTO medical_assistance (team_lead, service_type, availability_status, response_time, airport_id) 
+                           VALUES ('$team_lead', '$service_type', '$availability_status', '$response_time', '$airport_id')";
     
-    if ($conn->query($insertQuery) === TRUE) {
-        echo "<script>alert('Medical team added successfully!'); window.location.href = 'medical_assistance.php';</script>";
+    if ($conn->query($insertMedicalQuery) === TRUE) {
+        // Get the newly created medical_team_id
+        $medical_team_id = $conn->insert_id;
+
+        // Insert into Team_lead table
+        $insertTeamLeadQuery = "INSERT INTO team_lead (medical_team_id, start_date) 
+                                VALUES ('$medical_team_id', CURDATE())";
+
+        if ($conn->query($insertTeamLeadQuery) === TRUE) {
+            echo "<script>alert('Medical team and team lead added successfully!'); window.location.href = 'medical_assistance.php';</script>";
+        } else {
+            echo "Error: " . $insertTeamLeadQuery . "<br>" . $conn->error;
+        }
     } else {
-        echo "Error: " . $insertQuery . "<br>" . $conn->error;
+        echo "Error: " . $insertMedicalQuery . "<br>" . $conn->error;
     }
 }
 
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
