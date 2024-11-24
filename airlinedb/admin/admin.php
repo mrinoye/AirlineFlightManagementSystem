@@ -41,8 +41,8 @@ if (!isset($_SESSION['admin_id']) || $_SESSION['role'] != 'admin') {
 
             <a href="update_flight.php" 
                class="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-green-50 transition">
-                <h2 class="text-lg font-semibold text-green-600">Update Flight</h2>
-                <p class="text-gray-600 mt-2">Modify an existing flight's details.</p>
+                <h2 class="text-lg font-semibold text-green-600">Manage Flight</h2>
+                <p class="text-gray-600 mt-2">View and Modify an existing flight's details.</p>
             </a>
 
             <a href="add_route.php" 
@@ -56,11 +56,11 @@ if (!isset($_SESSION['admin_id']) || $_SESSION['role'] != 'admin') {
                 <p class="text-gray-600 mt-2">Add a airport on the system.</p>
             </a>
 
-            <a href="user.php" 
+            <!-- <a href="user.php" 
                class="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-green-50 transition">
                 <h2 class="text-lg font-semibold text-green-600">View All Flights</h2>
                 <p class="text-gray-600 mt-2">See all flights currently scheduled.</p>
-            </a>
+            </a> -->
 
             <a href="add_crew.php" 
                class="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-green-50 transition">
@@ -68,13 +68,13 @@ if (!isset($_SESSION['admin_id']) || $_SESSION['role'] != 'admin') {
                 <p class="text-gray-600 mt-2">Add, update, or remove crew members.</p>
             </a>
 
-            <a href="update_airport_security.php" 
+            <a href="airport_security.php" 
                class="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-green-50 transition">
-                <h2 class="text-lg font-semibold text-green-600">Update Airport Security</h2>
+                <h2 class="text-lg font-semibold text-green-600">Manage Airport Security</h2>
                 <p class="text-gray-600 mt-2">Manage airport security details and personnel.</p>
             </a>
 
-            <a href="maintenance_schedule.php" 
+            <a href="airport_maintenance.php" 
                class="block p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-green-50 transition">
                 <h2 class="text-lg font-semibold text-green-600">Airport Maintenance</h2>
                 <p class="text-gray-600 mt-2">Schedule and update airport maintenance tasks.</p>
