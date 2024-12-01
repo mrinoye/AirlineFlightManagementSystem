@@ -82,7 +82,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_flight'])) {
                     Update Flight
                 </button>
 
-                <a href="admin.php" class="text-center text-blue-500 hover:text-blue-700">Go Back</a>
+                <div class="mt-8 mb-8 inline-block mx-auto">
+                    <a href="../admin.php"
+                        class="px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition">Back to Home</a>
+                </div>
             </form>
         <?php else: ?>
             <p class="text-center text-gray-600">No flight details available to edit.</p>

@@ -2,12 +2,14 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Airport</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
+
 <body class="flex items-center justify-center bg-gradient-to-br from-green-500 to-teal-400 min-h-screen p-6">
     <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
         <h3 class="text-2xl font-semibold text-center text-gray-800 mb-6">Add New Airport</h3>
@@ -30,8 +32,13 @@
             </div>
             <button type="submit" name="submit_add_airport" class="w-full bg-green-600 text-white p-3 rounded hover:bg-green-700 transition">Add Airport</button>
         </form>
+        <div class="mt-8 mb-8 inline-block mx-auto">
+            <a href="../admin/admin.php"
+                class="px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition">Back to Home</a>
+        </div>
     </div>
 </body>
+
 </html>
 
 <?php

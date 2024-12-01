@@ -34,14 +34,14 @@ $result = $conn->query($sql);
         <h1 class="text-3xl font-bold text-center text-green-600 mb-8">Available Flights</h1>
 
         <div class="mb-6">
-            <form action="user.php" method="GET" class="flex justify-center space-x-4">
+            <form action="user.php" method="GET" class="flex justify-center items-center space-x-4">
                 <input type="text" name="search" placeholder="Search by flight number or status"
                     value="<?= htmlspecialchars($search) ?>"
                     class="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-green-500" />
                 <button type="submit"
-                    class="px-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">Search</button>
+                    class="h-full px-6 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition">Search</button>
                 <div class="space-x-3 my-3">
-                    <a href="../admin//index.html"
+                    <a href="../admin/index.html"
                         class="px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition">Back to Home</a>
                     <a href="http://localhost/airlinedb/admin/admin_login.php"
                         class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">Switch to Admin</a>
@@ -58,7 +58,6 @@ $result = $conn->query($sql);
                         <th class="py-3 px-4 border-b">Departure Time</th>
                         <th class="py-3 px-4 border-b">Arrival Time</th>
                         <th class="py-3 px-4 border-b">Status</th>
-                        <th class="py-3 px-4 border-b">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -71,14 +70,10 @@ $result = $conn->query($sql);
                                 <td class='py-3 px-4'>" . htmlspecialchars($row["departure_time"]) . "</td>
                                 <td class='py-3 px-4'>" . htmlspecialchars($row["arrival_time"]) . "</td>
                                 <td class='py-3 px-4'>" . htmlspecialchars($row["status"]) . "</td>
-                                <td class='py-3 px-4'>
-                                    <a href='flight_details.php?id=" . urlencode($row["flight_id"]) . "' 
-                                       class='text-blue-500 hover:underline'>View Details</a>
-                                </td>
                             </tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='6' class='py-4 text-center text-gray-500'>No flights found</td></tr>";
+                        echo "<tr><td colspan='5' class='py-4 text-center text-gray-500'>No flights found</td></tr>";
                     }
                     ?>
                 </tbody>

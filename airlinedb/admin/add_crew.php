@@ -154,7 +154,7 @@ $crew_members = $conn->query("SELECT crew_id, name, role FROM crew")->fetch_all(
             </button>
         </form>
         <div class="mt-8 mb-8 inline-block mx-auto">
-        <a href="../admin//index.html"
+        <a href="../admin/admin.php"
         class="px-4 py-2 bg-gray-100 border border-gray-300 rounded-lg hover:bg-gray-200 transition">Back to Home</a>
         </div>
     </div>
